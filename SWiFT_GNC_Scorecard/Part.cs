@@ -8,7 +8,7 @@
     public string? WALLNUM { get; set; }
     public string? ROOMNUM { get; set; }
     public string? LINNUM { get; set; }
-    public decimal PARTQTY { get; set; }
+    public decimal PARTQTY { get; set; } 
     public decimal WIDTH { get; set; }
     public string? WIDTHSTR { get; set; }
     public decimal LENGTH { get; set; }
@@ -44,7 +44,7 @@
     public string? JOBDESCRIPTION { get; set; }
     public string? INTBANDMAT { get; set; }
     public string? INTBANDCOLOR { get; set; }
-    public List<TrackedTimes> trackedTimes  { get; set; }
+    public List<TrackedTimes>? trackedTimes { get; set; }
     public bool isCNC { get; set; }
     public bool isPanelSaw { get; set; }
     public bool isShowing { get; set; }

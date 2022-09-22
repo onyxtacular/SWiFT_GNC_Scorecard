@@ -38,7 +38,7 @@ namespace SWiFT_GNC_Scorecard
 
             app.UseHttpsRedirection();
             app.UseCors("AllowAll");
-            app.UseAuthorization();
+         //   app.UseAuthorization();
 
             app.MapGet("/parts", async (OnyxDBContext db) => await db.Parts.ToListAsync());
             app.MapGet("/parts/{id}", async (int id,OnyxDBContext db) => 
@@ -50,24 +50,24 @@ namespace SWiFT_GNC_Scorecard
                 var record = await db.Parts.FindAsync(id);
                 if (record is null) return Results.NotFound();
 
-                part.DeptID = record.DeptID;
-                part.UserID = record.UserID;
-                part.Schedule = record.Schedule;
-                part.OrderNumber = record.OrderNumber;
-                part.WALLNUM = record.WALLNUM;
-                part.ROOMNUM = record.ROOMNUM;
-                part.LINNUM = record.LINNUM;
-                part.PARTQTY = record.PARTQTY;
-                part.WIDTH = record.WIDTH;
-                part.WIDTHSTR = record.WIDTHSTR;
-                part.LENGTH = record.LENGTH;
-                part.LENGTHSTR = record.LENGTHSTR;
-                part.DEPTH = record.DEPTH;
-                part.DEPTHSTR = record.DEPTHSTR;
-                part.PARTID = record.PARTID;
-                part.PARTNAME = record.PARTNAME;
-                part.MATERIALID = record.MATERIALID;
-                part.MATERIALNAME = record.MATERIALNAME;
+                record.DeptID = part.DeptID;
+                record.UserID = part.UserID;
+                record.Schedule = part.Schedule;
+                record.OrderNumber = part.OrderNumber;
+                record.WALLNUM = part.WALLNUM;
+                record.ROOMNUM = part.ROOMNUM;
+                record.LINNUM = part.LINNUM;
+                record.PARTQTY = part.PARTQTY;
+                record.WIDTH = part.WIDTH;
+                record.WIDTHSTR = part.WIDTHSTR;
+                record.LENGTH = part.LENGTH;
+                record.LENGTHSTR = part.LENGTHSTR;
+                record.DEPTH = part.DEPTH;
+                record.DEPTHSTR = part.DEPTHSTR;
+                record.PARTID = part.PARTID;
+                record.PARTNAME = part.PARTNAME;
+                record.MATERIALID = part.MATERIALID;
+                record.MATERIALNAME = part.MATERIALNAME;
 
                 await db.SaveChangesAsync();
                 return Results.NoContent();
